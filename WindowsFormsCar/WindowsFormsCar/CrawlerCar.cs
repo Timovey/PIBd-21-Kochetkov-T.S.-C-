@@ -170,26 +170,7 @@ namespace WindowsFormsCar
 
 
                 g.FillRectangle(blackBrush, _startPosX, _startPosY, 20, 20);
-
-                //g.DrawEllipse(pen, _startPosX + 80, _startPosY - 6, 20, 20);
-                //g.DrawEllipse(pen, _startPosX + 80, _startPosY + 35, 20, 20);
-                //g.DrawEllipse(pen, _startPosX - 5, _startPosY - 6, 20, 20);
-                //g.DrawEllipse(pen, _startPosX - 5, _startPosY + 35, 20, 20);
-                //g.DrawRectangle(pen, _startPosX + 80, _startPosY - 6, 15, 15);
-                //g.DrawRectangle(pen, _startPosX + 80, _startPosY + 40, 15, 15);
-                //g.DrawRectangle(pen, _startPosX, _startPosY - 6, 14, 15);
-                //g.DrawRectangle(pen, _startPosX, _startPosY + 40, 14, 15);
-                //Brush spoiler = new SolidBrush(DopColor);
-                //g.FillEllipse(spoiler, _startPosX + 80, _startPosY - 5, 20, 20);
-                //g.FillEllipse(spoiler, _startPosX + 80, _startPosY + 35, 20, 20);
-                //g.FillRectangle(spoiler, _startPosX + 75, _startPosY, 25, 40);
-                //g.FillRectangle(spoiler, _startPosX + 80, _startPosY - 5, 15, 15);
-                //g.FillRectangle(spoiler, _startPosX + 80, _startPosY + 40, 15, 15);
-                //g.FillEllipse(spoiler, _startPosX - 5, _startPosY - 5, 20, 20);
-                //g.FillEllipse(spoiler, _startPosX - 5, _startPosY + 35, 20, 20);
-                //g.FillRectangle(spoiler, _startPosX - 5, _startPosY, 25, 40);
-                //g.FillRectangle(spoiler, _startPosX, _startPosY - 5, 15, 15);
-                //g.FillRectangle(spoiler, _startPosX, _startPosY + 40, 15, 15);
+             
             }
 
             if (BackAntenna)
@@ -197,11 +178,7 @@ namespace WindowsFormsCar
 
                 g.FillRectangle(blackBrush, _startPosX + 125, _startPosY + 40, 5, 30);
 
-                //g.DrawRectangle(pen, _startPosX + 25, _startPosY - 6, 39, 10);
-                //g.DrawRectangle(pen, _startPosX + 25, _startPosY + 45, 39, 10);
-                //Brush spoiler = new SolidBrush(DopColor);
-                //g.FillRectangle(spoiler, _startPosX + 25, _startPosY - 5, 40, 10);
-                //g.FillRectangle(spoiler, _startPosX + 25, _startPosY + 45, 40, 10);
+               
             }
             // теперь отрисуем основной кузов автомобиля
             //границы автомобиля
@@ -219,10 +196,7 @@ namespace WindowsFormsCar
                 g.FillEllipse(dop, _startPosX + 60, _startPosY, 15, 10);
                 g.DrawEllipse(pen, _startPosX + 60, _startPosY, 15, 10);
 
-                // br = new SolidBrush(DopColor);
-                // g.FillRectangle(br, _startPosX + 65, _startPosY + 18, 25, 15);
-                // g.FillRectangle(br, _startPosX + 25, _startPosY + 18, 35, 15);
-                // g.FillRectangle(br, _startPosX, _startPosY + 18, 20, 15);
+               
             }
         }
     }
