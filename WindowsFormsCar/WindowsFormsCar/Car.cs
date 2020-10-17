@@ -12,7 +12,7 @@ namespace WindowsFormsCar
         /// <summary>
         /// Ширина отрисовки автомобиля
         /// </summary>
-        private readonly int carWidth = 10;
+        private readonly int carWidth = 120;
         /// <summary>
         /// Высота отрисовки автомобиля
         /// </summary>

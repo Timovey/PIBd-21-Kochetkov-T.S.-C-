@@ -86,10 +86,5 @@ namespace WindowsFormsCar
             }
             Draw();
         }
-
-        private void FormCar_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
