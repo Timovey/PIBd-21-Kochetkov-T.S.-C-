@@ -11,45 +11,9 @@ namespace WindowsFormsCar
     /// <summary>
     /// Класс отрисовки автомобиля
     /// </summary>
-    public class CrawlerCar
+    public class CrawlerCar: Car
     {
-        /// <summary>
-        /// Левая координата отрисовки автомобиля
-        /// </summary>
-        private float _startPosX;
-        /// <summary>
-        /// Правая кооридната отрисовки автомобиля
-        /// </summary>
-        private float _startPosY;
-        /// <summary>
-        /// Ширина окна отрисовки
-        /// </summary>
-        private int _pictureWidth;
-        /// <summary>
-        /// Высота окна отрисовки
-        /// </summary>
-        private int _pictureHeight;
-        /// <summary>
-        /// Ширина отрисовки автомобиля
-        /// </summary>
-        ///
-        private readonly int carWidth = 120;
-        /// <summary>
-        /// Высота отрисовки автомобиля
-        /// </summary>
-        private readonly int carHeight = 80;
-        /// <summary>
-        /// Максимальная скорость
-        /// </summary>
-        public int MaxSpeed { private set; get; }
-        /// <summary>
-        /// Вес автомобиля
-        /// </summary>
-        public float Weight { private set; get; }
-        /// <summary>
-        /// Основной цвет кузова
-        /// </summary>
-        public Color MainColor { private set; get; }
+
         /// <summary>
         /// Дополнительный цвет
         /// </summary>
@@ -65,7 +29,7 @@ namespace WindowsFormsCar
         /// <summary>
         /// Признак наличия задней антенны
         /// </summary>
-        public bool Flasher { private set; get; }
+        public bool Stand { private set; get; }
         /// <summary>
         /// Признак наличия мигалки
         /// </summary>
@@ -74,81 +38,28 @@ namespace WindowsFormsCar
         /// <param name="weight">Вес автомобиля</param>
         /// <param name="mainColor">Основной цвет кузова</param>
         /// <param name="dopColor">Дополнительный цвет</param>
-        /// <param name="frontLadle">Признак наличия переднего спойлера</param>
-        /// <param name="backAntenna">Признак наличия боковых спойлеров</param>
-        /// <param name="flasher">Признак наличия заднего спойлера</param>
+        /// <param name="frontLadle">Признак наличия переднего ковша</param>
+        /// <param name="backAntenna">Признак наличия задней антенны</param>
+        /// <param name="stand">Признак наличия задней подставки</param>
 
         public CrawlerCar(int maxSpeed, float weight, Color mainColor, Color dopColor,
-        bool frontLadle, bool backAntenna, bool flasher)
+        bool frontLadle, bool backAntenna, bool stand) :
+        base(maxSpeed, weight, mainColor, 130, 80)
+
         {
-            MaxSpeed = maxSpeed;
-            Weight = weight;
-            MainColor = mainColor;
+
             DopColor = dopColor;
             FrontLadle = frontLadle;
             BackAntenna = backAntenna;
-            Flasher = flasher;
+            Stand = stand;
         }
-        /// <summary>
-        /// Установка позиции автомобиля
-        /// </summary>
-        /// <param name="x">Координата X</param>
-        /// <param name="y">Координата Y</param>
-        /// <param name="width">Ширина картинки</param>
-        /// <param name="height">Высота картинки</param>
-        public void SetPosition(int x, int y, int width, int height)
-        {
-            _startPosX = x;
-            _startPosY = y;
-            _pictureWidth = width;
-            _pictureHeight = height;
-            // Продумать логику
-        }
-        /// <summary>
-        /// Изменение направления пермещения
-        /// </summary>
-        /// <param name="direction">Направление</param>
-        public void MoveTransport(Direction direction)
-        {
-            float step = MaxSpeed * 100 / Weight;
-            switch (direction)
-            {
-                // вправо
-                case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
-                    {
-                        _startPosX += step;
-                    }
-                    break;
-                //влево
-                case Direction.Left:
-                    if (_startPosX - step > 0)
-                    {
-                        _startPosX -= step;
-                    }
-
-                    break;
-                //вверх
-                case Direction.Up:
-                    if (_startPosY - step > 0)
-                    {
-                        _startPosY -= step;
-                    }
-                    break;
-                //вниз
-                case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
-                    {
-                        _startPosY += step;
-                    }
-                    break;
-            }
-        }
+        
+       
         /// <summary>
         /// Отрисовка автомобиля
         /// </summary>
         /// <param name="g"></param>
-        public void DrawTransport(Graphics g)
+        public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
             Brush blackBrush = new SolidBrush(Color.Black);
@@ -157,7 +68,7 @@ namespace WindowsFormsCar
 
             Brush mainer = new SolidBrush(MainColor);
 
-
+            // рисуем передний ковш
             if (FrontLadle)
             {
 
@@ -168,35 +79,24 @@ namespace WindowsFormsCar
                 _startPosX + 40, _startPosY, 10, 40);
                 g.DrawRectangle(pen, _startPosX + 40, _startPosY, 10, 40);
 
-
                 g.FillRectangle(blackBrush, _startPosX, _startPosY, 20, 20);
              
             }
-
+            // рисуем антенну
             if (BackAntenna)
             {
-
                 g.FillRectangle(blackBrush, _startPosX + 125, _startPosY + 40, 5, 30);
-
-               
+             
             }
-            // теперь отрисуем основной кузов автомобиля
-            //границы автомобиля
-            g.FillEllipse(blackBrush, _startPosX + 40, _startPosY + 40, 80, 30);
-
-            g.FillRectangle(mainer, _startPosX + 40, _startPosY + 25, 90, 15);
-            g.DrawRectangle(pen, _startPosX + 40, _startPosY + 25, 90, 15);
-
-            g.FillRectangle(mainer, _startPosX + 55, _startPosY + 10, 40, 15);
-            g.DrawRectangle(pen, _startPosX + 55, _startPosY + 10, 40, 15);
-
-            // рисуем гоночные полоски
-            if (Flasher)
+            // отрисуем основной кузов автомобиля
+            base.DrawTransport(g);
+           
+            // рисуем заднюю подставку
+            if (Stand)
             {
                 g.FillEllipse(dop, _startPosX + 60, _startPosY, 15, 10);
                 g.DrawEllipse(pen, _startPosX + 60, _startPosY, 15, 10);
-
-               
+   
             }
         }
     }

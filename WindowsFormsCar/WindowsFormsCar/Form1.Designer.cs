@@ -35,6 +35,7 @@
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonCreateCrawler = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,22 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateCrawler
+            // 
+            this.buttonCreateCrawler.Location = new System.Drawing.Point(190, 27);
+            this.buttonCreateCrawler.Name = "buttonCreateCrawler";
+            this.buttonCreateCrawler.Size = new System.Drawing.Size(160, 34);
+            this.buttonCreateCrawler.TabIndex = 6;
+            this.buttonCreateCrawler.Text = "создать гусенечный автомобиль";
+            this.buttonCreateCrawler.UseVisualStyleBackColor = true;
+            this.buttonCreateCrawler.Click += new System.EventHandler(this.buttonCreateCrawlerCar_Click);
+            // 
             // FormCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.buttonCreateCrawler);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
@@ -118,7 +130,7 @@
             this.Controls.Add(this.pictureBoxCars);
             this.Name = "FormCar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Автомобиль";
+            this.Text = "Автомобиль";  
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).EndInit();
             this.ResumeLayout(false);
 
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonCreateCrawler;
     }
 }
 
