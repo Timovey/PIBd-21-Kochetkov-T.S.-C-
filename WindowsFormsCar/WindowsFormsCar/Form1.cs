@@ -21,6 +21,16 @@ namespace WindowsFormsCar
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Передача машины на форму
+        /// </summary>
+        /// <param name="car"></param>
+        public void SetCar(ITransport car)
+        {
+            this.car = car;
+            Draw();
+        }
+
         // <summary>
         /// Метод отрисовки машины
         /// </summary>
