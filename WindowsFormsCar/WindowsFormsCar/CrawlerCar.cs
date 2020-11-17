@@ -19,20 +19,18 @@ namespace WindowsFormsCar
         /// </summary>
         public Color DopColor { private set; get; }
         /// <summary>
-        /// Признак наличия переднего спойлера
+        /// Признак наличия переднего ковша
         /// </summary>
         public bool FrontLadle { private set; get; }
         /// <summary>
-        /// Признак наличия переднего ковша
+        /// Признак наличия задней антенны
         /// </summary>
         public bool BackAntenna { private set; get; }
         /// <summary>
-        /// Признак наличия задней антенны
-        /// </summary>
-        public bool Stand { private set; get; }
-        /// <summary>
         /// Признак наличия мигалки
         /// </summary>
+        public bool Stand { private set; get; }
+      
 
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
@@ -99,5 +97,10 @@ namespace WindowsFormsCar
    
             }
         }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
     }
 }
