@@ -91,61 +91,6 @@ namespace WindowsFormsCar
             }         
         }
 
-
-
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetCar_Click(object sender, EventArgs e)
-        {
-            if (listBoxParkings.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var car = new Car(100, 1000, dialog.Color);
-                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + car)
-                    {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Парковка переполнена");
-                    }
-				}
-			}
-        }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetCrawlerCar_Click(object sender, EventArgs e)
-        {
-            if (listBoxParkings.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var car = new CrawlerCar(100, 1000, dialog.Color, dialogDop.Color,
-                       true, true, true);
-                        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + car)
-                        {
-                            Draw();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Парковка переполнена");
-                        }
-                    }
-                }
-            }
-        }
         /// <summary>
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
@@ -173,6 +118,43 @@ namespace WindowsFormsCar
         /// <param name="e"></param>         
         private void listBoxParkings_SelectedIndexChanged(object sender, EventArgs e)         {
             Draw();        
-        }   
+        }
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить автомобиль"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSetCar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxNewLevelName.Text))
+            {
+                MessageBox.Show("Создайте парковку", "Ошибка",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var formCarConfig = new FormCarConfig();
+            formCarConfig.AddEvent(AddCar);
+            formCarConfig.Show();
+  
+        }
+        /// <summary>
+        /// Метод добавления машины
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddCar(Vehicle car)
+        {
+            if (car != null && listBoxParkings.SelectedIndex > -1)
+            {
+                if ((parkingCollection[listBoxParkings.SelectedItem.ToString()]) + car)
+                {
+                    Draw(); 
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }
+
     }
 }

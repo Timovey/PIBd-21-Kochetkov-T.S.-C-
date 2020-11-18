@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.buttonParkingCar = new System.Windows.Forms.Button();
-            this.buttonParkingCravelCar = new System.Windows.Forms.Button();
             this.groupBoxParking = new System.Windows.Forms.GroupBox();
             this.buttonTakeCar = new System.Windows.Forms.Button();
             this.labelParkingCar = new System.Windows.Forms.Label();
@@ -41,6 +39,7 @@
             this.buttonAddParking = new System.Windows.Forms.Button();
             this.textBoxNewLevelName = new System.Windows.Forms.TextBox();
             this.buttonDeleteParking = new System.Windows.Forms.Button();
+            this.buttonAddCar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxParking.SuspendLayout();
             this.SuspendLayout();
@@ -53,26 +52,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(627, 458);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            // 
-            // buttonParkingCar
-            // 
-            this.buttonParkingCar.Location = new System.Drawing.Point(646, 216);
-            this.buttonParkingCar.Name = "buttonParkingCar";
-            this.buttonParkingCar.Size = new System.Drawing.Size(142, 43);
-            this.buttonParkingCar.TabIndex = 1;
-            this.buttonParkingCar.Text = "припарковать автомобиль";
-            this.buttonParkingCar.UseVisualStyleBackColor = true;
-            this.buttonParkingCar.Click += new System.EventHandler(this.buttonSetCar_Click);
-            // 
-            // buttonParkingCravelCar
-            // 
-            this.buttonParkingCravelCar.Location = new System.Drawing.Point(646, 265);
-            this.buttonParkingCravelCar.Name = "buttonParkingCravelCar";
-            this.buttonParkingCravelCar.Size = new System.Drawing.Size(141, 45);
-            this.buttonParkingCravelCar.TabIndex = 2;
-            this.buttonParkingCravelCar.Text = "припарковать гусенечный автомобиль";
-            this.buttonParkingCravelCar.UseVisualStyleBackColor = true;
-            this.buttonParkingCravelCar.Click += new System.EventHandler(this.buttonSetCrawlerCar_Click);
             // 
             // groupBoxParking
             // 
@@ -166,19 +145,28 @@
             this.buttonDeleteParking.UseVisualStyleBackColor = true;
             this.buttonDeleteParking.Click += new System.EventHandler(this.buttonDelParking_Click);
             // 
+            // buttonAddCar
+            // 
+            this.buttonAddCar.Location = new System.Drawing.Point(660, 227);
+            this.buttonAddCar.Name = "buttonAddCar";
+            this.buttonAddCar.Size = new System.Drawing.Size(127, 69);
+            this.buttonAddCar.TabIndex = 9;
+            this.buttonAddCar.Text = "Добавить автомобиль";
+            this.buttonAddCar.UseVisualStyleBackColor = true;
+            this.buttonAddCar.Click += new System.EventHandler(this.buttonSetCar_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAddCar);
             this.Controls.Add(this.buttonDeleteParking);
             this.Controls.Add(this.textBoxNewLevelName);
             this.Controls.Add(this.buttonAddParking);
             this.Controls.Add(this.labelParkings);
             this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.groupBoxParking);
-            this.Controls.Add(this.buttonParkingCravelCar);
-            this.Controls.Add(this.buttonParkingCar);
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Парковка";
@@ -193,8 +181,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
-        private System.Windows.Forms.Button buttonParkingCar;
-        private System.Windows.Forms.Button buttonParkingCravelCar;
         private System.Windows.Forms.GroupBox groupBoxParking;
         private System.Windows.Forms.Button buttonTakeCar;
         private System.Windows.Forms.Label labelParkingCar;
@@ -205,5 +191,6 @@
         private System.Windows.Forms.Button buttonAddParking;
         private System.Windows.Forms.TextBox textBoxNewLevelName;
         private System.Windows.Forms.Button buttonDeleteParking;
+        private System.Windows.Forms.Button buttonAddCar;
     }
 }
