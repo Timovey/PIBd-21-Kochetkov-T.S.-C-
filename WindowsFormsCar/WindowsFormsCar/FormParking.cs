@@ -126,12 +126,6 @@ namespace WindowsFormsCar
         /// <param name="e"></param>
         private void buttonSetCar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNewLevelName.Text))
-            {
-                MessageBox.Show("Создайте парковку", "Ошибка",
-               MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             var formCarConfig = new FormCarConfig();
             formCarConfig.AddEvent(AddCar);
             formCarConfig.Show();
