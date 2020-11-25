@@ -51,8 +51,21 @@ namespace WindowsFormsCar
             BackAntenna = backAntenna;
             Stand = stand;
         }
-        
-       
+        public CrawlerCar(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                FrontLadle = Convert.ToBoolean(strs[4]);
+                BackAntenna = Convert.ToBoolean(strs[5]);
+                Stand = Convert.ToBoolean(strs[6]);  
+            }
+        }
+
         /// <summary>
         /// Отрисовка автомобиля
         /// </summary>
@@ -101,6 +114,14 @@ namespace WindowsFormsCar
         {
             DopColor = color;
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}{separator}{DopColor.Name}" +
+                $"{separator}{FrontLadle}{separator}{BackAntenna}" +
+                $"{separator }{Stand}";
+        }
+
 
     }
 }

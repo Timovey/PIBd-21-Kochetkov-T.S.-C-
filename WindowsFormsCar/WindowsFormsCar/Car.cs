@@ -18,6 +18,10 @@ namespace WindowsFormsCar
         /// </summary>
         private readonly int carHeight = 80;
         /// <summary>
+        /// Разделитель для записи информации по объекту в файл
+        /// </summary>
+        protected readonly char separator = ';';
+        /// <summary>
         /// Максимальная скорость
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
@@ -28,6 +32,20 @@ namespace WindowsFormsCar
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+        }
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Car(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
         /// <summary>
         /// Конструкторс изменением размеров машины
@@ -98,5 +116,10 @@ namespace WindowsFormsCar
             g.DrawRectangle(pen, _startPosX + 55, _startPosY + 10, 40, 15);
 
         }
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
+        }
+
     }
 }
