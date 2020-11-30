@@ -149,13 +149,12 @@ namespace WindowsFormsCar
                     {
                         if (line.Contains("ParkingCollection"))
                         {
-                            //очищаем записи
                             parkingStages.Clear();
                             head = false;
                         }
                         else
                         {
-                            //если нет такой записи, то это не те данные
+
                             return false;
                         }
                     }
