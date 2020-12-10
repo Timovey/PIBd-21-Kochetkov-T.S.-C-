@@ -63,8 +63,9 @@ namespace WindowsFormsCar
         /// <returns></returns>
         public static bool operator +(Parking<T> p, T car)
         {
-            if (p._places.Count >= p._maxCount) { 
-                return false; 
+       
+            if (p._places.Count >= p._maxCount) {
+                throw new ParkingOverflowException();
             }
 
             p._places.Add(car);
@@ -80,7 +81,9 @@ namespace WindowsFormsCar
         /// <returns></returns>
         public static T operator -(Parking<T> p, int index)
         {
-            if (index < -1 || index > p._places.Count) { return null; }
+            if (index < -1 || index > p._places.Count) {
+                throw new ParkingNotFoundException(index);
+            }
 
             T car = p._places[index];
 

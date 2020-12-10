@@ -88,7 +88,8 @@ namespace WindowsFormsCar
 
 		}
 
-        public bool SaveData(string filename)
+      
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -115,13 +116,12 @@ namespace WindowsFormsCar
                                 sw.Write($"CrawlerCar{separator}");
                             }
                             //Записываемые параметры
-                            sw.WriteLine(car);
+                            sw.WriteLine(car + Environment.NewLine);
                         }
                     }
 
                 }
             }
-            return true;
         }
 
 
@@ -130,14 +130,16 @@ namespace WindowsFormsCar
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+
+                throw new FileNotFoundException();
             }
             using (StreamReader sr = new StreamReader(filename))
             {
+
                 bool head = true;
                 string line;
                 Vehicle car = null;
@@ -154,8 +156,7 @@ namespace WindowsFormsCar
                         }
                         else
                         {
-
-                            return false;
+                            throw new FileLoadException("Неверный формат файла");
                         }
                     }
                     else
@@ -182,13 +183,11 @@ namespace WindowsFormsCar
                         var result = parkingStages[key] + car;
                         if (!result)
                         {
-                            return false;
+                            throw new Exception("Не удалось загрузить автомобиль на парковку");
                         }
                     }
                 }
             }
-            return true;
         }
-
     }
 }
