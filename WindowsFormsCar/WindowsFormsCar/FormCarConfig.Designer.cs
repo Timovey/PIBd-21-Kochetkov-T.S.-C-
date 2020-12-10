@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxParameters = new System.Windows.Forms.GroupBox();
             this.checkBoxStand = new System.Windows.Forms.CheckBox();
             this.checkBoxBackAntenna = new System.Windows.Forms.CheckBox();
             this.checkBoxFrontLadle = new System.Windows.Forms.CheckBox();
@@ -54,7 +54,7 @@
             this.panelColor1 = new System.Windows.Forms.Panel();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).BeginInit();
@@ -63,21 +63,21 @@
             this.groupBoxColor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxParameters
             // 
-            this.groupBox1.Controls.Add(this.checkBoxStand);
-            this.groupBox1.Controls.Add(this.checkBoxBackAntenna);
-            this.groupBox1.Controls.Add(this.checkBoxFrontLadle);
-            this.groupBox1.Controls.Add(this.numericUpDownWeight);
-            this.groupBox1.Controls.Add(this.numericUpDownMaxSpeed);
-            this.groupBox1.Controls.Add(this.labelWeight);
-            this.groupBox1.Controls.Add(this.labelMaxSpeed);
-            this.groupBox1.Location = new System.Drawing.Point(71, 219);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(342, 123);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Параметры";
+            this.groupBoxParameters.Controls.Add(this.checkBoxStand);
+            this.groupBoxParameters.Controls.Add(this.checkBoxBackAntenna);
+            this.groupBoxParameters.Controls.Add(this.checkBoxFrontLadle);
+            this.groupBoxParameters.Controls.Add(this.numericUpDownWeight);
+            this.groupBoxParameters.Controls.Add(this.numericUpDownMaxSpeed);
+            this.groupBoxParameters.Controls.Add(this.labelWeight);
+            this.groupBoxParameters.Controls.Add(this.labelMaxSpeed);
+            this.groupBoxParameters.Location = new System.Drawing.Point(71, 219);
+            this.groupBoxParameters.Name = "groupBoxParameters";
+            this.groupBoxParameters.Size = new System.Drawing.Size(342, 123);
+            this.groupBoxParameters.TabIndex = 0;
+            this.groupBoxParameters.TabStop = false;
+            this.groupBoxParameters.Text = "Параметры";
             // 
             // checkBoxStand
             // 
@@ -282,7 +282,7 @@
             // 
             // panelColor7
             // 
-            this.panelColor7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelColor7.BackColor = System.Drawing.Color.Black;
             this.panelColor7.Location = new System.Drawing.Point(112, 106);
             this.panelColor7.Name = "panelColor7";
             this.panelColor7.Size = new System.Drawing.Size(30, 30);
@@ -291,7 +291,7 @@
             // 
             // panelColor6
             // 
-            this.panelColor6.BackColor = System.Drawing.Color.Blue;
+            this.panelColor6.BackColor = System.Drawing.Color.Fuchsia;
             this.panelColor6.Location = new System.Drawing.Point(67, 106);
             this.panelColor6.Name = "panelColor6";
             this.panelColor6.Size = new System.Drawing.Size(30, 30);
@@ -309,7 +309,7 @@
             // 
             // panelColor4
             // 
-            this.panelColor4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelColor4.BackColor = System.Drawing.Color.Blue;
             this.panelColor4.Location = new System.Drawing.Point(157, 70);
             this.panelColor4.Name = "panelColor4";
             this.panelColor4.Size = new System.Drawing.Size(30, 30);
@@ -318,7 +318,7 @@
             // 
             // panelColor3
             // 
-            this.panelColor3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelColor3.BackColor = System.Drawing.Color.Aqua;
             this.panelColor3.Location = new System.Drawing.Point(112, 70);
             this.panelColor3.Name = "panelColor3";
             this.panelColor3.Size = new System.Drawing.Size(30, 30);
@@ -327,7 +327,7 @@
             // 
             // panelColor2
             // 
-            this.panelColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelColor2.BackColor = System.Drawing.Color.Yellow;
             this.panelColor2.Location = new System.Drawing.Point(67, 70);
             this.panelColor2.Name = "panelColor2";
             this.panelColor2.Size = new System.Drawing.Size(30, 30);
@@ -336,7 +336,7 @@
             // 
             // panelColor1
             // 
-            this.panelColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelColor1.BackColor = System.Drawing.Color.Red;
             this.panelColor1.Location = new System.Drawing.Point(22, 70);
             this.panelColor1.Name = "panelColor1";
             this.panelColor1.Size = new System.Drawing.Size(30, 30);
@@ -372,11 +372,11 @@
             this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelCar);
             this.Controls.Add(this.groupBoxTypeBody);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxParameters);
             this.Name = "FormCarConfig";
             this.Text = "FormCarConfig";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxParameters.ResumeLayout(false);
+            this.groupBoxParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).EndInit();
@@ -389,7 +389,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxParameters;
         private System.Windows.Forms.CheckBox checkBoxStand;
         private System.Windows.Forms.CheckBox checkBoxBackAntenna;
         private System.Windows.Forms.CheckBox checkBoxFrontLadle;
