@@ -102,11 +102,9 @@ namespace WindowsFormsCar
                 foreach (var level in parkingStages)
                 {
                     sw.WriteLine($"Parking{separator}{level.Key}");
-                    ITransport car = null;
-                    for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
+                   
+                    foreach (ITransport car in level.Value)
                     {
-                        if (car != null)
-                        {
                             if (car.GetType().Name == "Car")
                             {
                                 sw.Write($"Car{separator}");
@@ -119,8 +117,6 @@ namespace WindowsFormsCar
                             sw.WriteLine(car + Environment.NewLine);
                         }
                     }
-
-                }
             }
         }
 
