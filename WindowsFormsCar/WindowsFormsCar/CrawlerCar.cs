@@ -11,7 +11,7 @@ namespace WindowsFormsCar
     /// <summary>
     /// Класс отрисовки автомобиля
     /// </summary>
-    public class CrawlerCar: Car
+    public class CrawlerCar: Car, IEquatable<CrawlerCar>
     {
 
         /// <summary>
@@ -122,6 +122,58 @@ namespace WindowsFormsCar
                 $"{separator }{Stand}";
         }
 
-
-    }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(CrawlerCar other)
+        {
+            if (base.Equals(other))
+            {
+                if (DopColor != other.DopColor)
+                {
+                    return false;
+                }
+                if (FrontLadle != other.FrontLadle)
+                {
+                    return false;
+                }
+                if (BackAntenna != other.BackAntenna)
+                {
+                    return false;
+                }
+                if (Stand != other.Stand)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+           
+            
+           
+            
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is CrawlerCar carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+     }
 }

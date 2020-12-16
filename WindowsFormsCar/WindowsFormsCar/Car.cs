@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsCar
 {
-    public class Car : Vehicle
+    public class Car : Vehicle, IEquatable<Car>
     {
         /// <summary>
         /// Ширина отрисовки автомобиля
@@ -81,11 +81,11 @@ namespace WindowsFormsCar
                     if (_startPosX - step > 0)
                     {
                         _startPosX -= step;
-                    }         
+                    }
                     break;
                 //вверх
                 case Direction.Up:
-                     if (_startPosY - step > 0)
+                    if (_startPosY - step > 0)
                     {
                         _startPosY -= step;
                     }
@@ -120,6 +120,54 @@ namespace WindowsFormsCar
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
-
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Car
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Car other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Car carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
     }
 }
